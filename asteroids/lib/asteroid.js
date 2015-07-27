@@ -9,8 +9,17 @@
   };
 
   Asteroid.COLOR = '#000000';
-  Asteroid.RADIUS = 10;
+  Asteroid.RADIUS = 12;
 
   Asteroids.Util.inherits(Asteroid, Asteroids.MovingObject);
+
+  Asteroid.prototype.collideWith = function (otherObject) {
+    if (otherObject instanceof Asteroids.Ship) {
+      otherObject.relocate();
+    } else {
+      this.game.remove(otherObject);
+      this.game.remove(this);
+    }
+  };
 
 })();

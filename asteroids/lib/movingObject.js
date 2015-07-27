@@ -33,4 +33,17 @@
     this.pos = this.game.wrap(this.pos);
   };
 
+  MovingObject.prototype.isCollidedWith = function (otherObject) {
+    if (this === otherObject) {
+      return false;
+    }
+    var distance = Asteroids.Util.getDistance(this.pos, otherObject.pos);
+    var sumRadii = this.radius + otherObject.radius;
+
+    return distance <= sumRadii ? true : false;
+  };
+
+  MovingObject.prototype.collideWith = function (otherObject) {
+  };
+
 })();
