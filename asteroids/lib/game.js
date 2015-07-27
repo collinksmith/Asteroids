@@ -4,6 +4,7 @@
     this.asteroids = this.addAsteroids();
     this.ship = new Asteroids.Ship({pos: this.randomPosition(),
                                     game: this});
+    this.bullets = [];
   };
 
   Game.DIM_X = 600;
@@ -26,14 +27,14 @@
   };
 
   Game.prototype.allObjects = function () {
-    return this.asteroids.concat(this.ship);
+    return this.asteroids.concat(this.ship).concat(this.bullets);
   };
 
   Game.prototype.draw = function (context) {
     context.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
 
-    this.allObjects().forEach(function (asteroid) {
-      asteroid.draw(context);
+    this.allObjects().forEach(function (object) {
+      object.draw(context);
     });
   };
 
@@ -59,11 +60,6 @@
           object.collideWith(otherObj);
         }
       }
-      // game.asteroids.forEach(function (otherAsteroid) {
-      //   if (object.isCollidedWith(otherAsteroid)) {
-      //     object.collideWith(otherAsteroid);
-      //   }
-      // });
     });
   };
 
@@ -72,10 +68,16 @@
     this.checkCollisions();
   };
 
-  Game.prototype.remove = function (asteroid) {
-    for (var i = 0; i < this.asteroids.length; i++) {
-      if (this.asteroids[i] === asteroid) {
-        this.asteroids.splice(i, 1);
+  Game.prototype.remove = function (object) {
+    var objArray;
+    if (object instanceof Asteroids.Asteroid) {
+      objArray = this.asteroids;
+    } else if (object instanceof Asteroids.Bullet) {
+      objArray = this.bullets;
+    }
+    for (var i = 0; i < objArray.length; i++) {
+      if (objArray[i] === object) {
+        objArray.splice(i, 1);
         return true;
       }
     }
