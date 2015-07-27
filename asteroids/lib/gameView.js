@@ -29,6 +29,9 @@
     key('d', function () {
       ship.power([magnitude, 0]);
     });
+    key('space', function () {
+      ship.fireBullet();
+    });
   };
 
 })();
