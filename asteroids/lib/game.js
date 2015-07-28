@@ -10,6 +10,8 @@
   Game.DIM_X = 600;
   Game.DIM_Y = 600;
   Game.NUM_ASTEROIDS = 20;
+  Game.BACKGROUND_IMG = new Image(Game.DIM_X, Game.DIM_Y);
+  Game.BACKGROUND_IMG.src = './assets/stars.jpg';
 
   Game.prototype.randomPosition = function () {
     var x = Math.floor(Game.DIM_X * Math.random());
@@ -32,6 +34,7 @@
 
   Game.prototype.draw = function (context) {
     context.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
+    context.drawImage(Game.BACKGROUND_IMG, 0, 0)
 
     this.allObjects().forEach(function (object) {
       object.draw(context);

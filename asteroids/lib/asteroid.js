@@ -8,7 +8,7 @@
     Asteroids.MovingObject.call(this, options);
   };
 
-  Asteroid.COLOR = '#000000';
+  Asteroid.COLOR = '#ffffff';
   Asteroid.RADIUS = 12;
 
   Asteroids.Util.inherits(Asteroid, Asteroids.MovingObject);

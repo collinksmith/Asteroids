@@ -33,9 +33,6 @@
     this.pos[0] += xvel;
     this.pos[1] += yvel;
     if (this.game.isOutOfBounds(this.pos)) {
-      if (this instanceof Asteroids.Bullet) {
-        console.log(this.isWrappable);
-      }
       if (this.isWrappable) {
         this.pos = this.game.wrap(this.pos);
       } else {
