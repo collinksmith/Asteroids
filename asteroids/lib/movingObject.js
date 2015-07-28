@@ -9,6 +9,8 @@
       this.game = options.game;
   };
 
+  MovingObject.prototype.isWrappable = true;
+
   MovingObject.prototype.draw = function (context) {
     context.fillStyle = this.color;
     context.beginPath();
@@ -30,7 +32,16 @@
     var yvel = this.vel[1];
     this.pos[0] += xvel;
     this.pos[1] += yvel;
-    this.pos = this.game.wrap(this.pos);
+    if (this.game.isOutOfBounds(this.pos)) {
+      if (this instanceof Asteroids.Bullet) {
+        console.log(this.isWrappable);
+      }
+      if (this.isWrappable) {
+        this.pos = this.game.wrap(this.pos);
+      } else {
+        this.game.remove(this);
+      }
+    }
   };
 
   MovingObject.prototype.isCollidedWith = function (otherObject) {

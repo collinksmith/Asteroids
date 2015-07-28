@@ -5,8 +5,9 @@
     options.radius = Bullet.RADIUS;
     Asteroids.MovingObject.call(this, options);
   };
-
   Asteroids.Util.inherits(Bullet, Asteroids.MovingObject);
+
+  Bullet.prototype.isWrappable = false;
 
   Bullet.RADIUS = 2;
   Bullet.COLOR = "#ff0000";
