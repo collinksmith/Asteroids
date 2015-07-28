@@ -34,7 +34,7 @@
 
   Game.prototype.draw = function (context) {
     context.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
-    context.drawImage(Game.BACKGROUND_IMG, 0, 0)
+    context.drawImage(Game.BACKGROUND_IMG, 0, 0);
 
     this.allObjects().forEach(function (object) {
       object.draw(context);

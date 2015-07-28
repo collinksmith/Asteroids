@@ -1,17 +1,24 @@
 (function () {
-  var Asteroids = window.Asteroids = window.Asteroids || {}
+  var Asteroids = window.Asteroids = window.Asteroids || {};
   var Ship = Asteroids.Ship = function (options) {
     options.vel = [0, 0];
     options.radius = Ship.RADIUS;
     options.color = Ship.COLOR;
-    Asteroids.MovingObject.call(this, options)
-  }
+    Asteroids.MovingObject.call(this, options);
+  };
 
   Asteroids.Util.inherits(Ship, Asteroids.MovingObject);
 
+  Ship.prototype.draw = function (context) {
+    context.drawImage(Ship.IMAGE,
+                      this.pos[0] - Ship.RADIUS,
+                      this.pos[1] - Ship.RADIUS);
+  };
 
   Ship.RADIUS = 8;
   Ship.COLOR = "#00ff00";
+  Ship.IMAGE = new Image();
+  Ship.IMAGE.src = "./assets/spaceship2.jpeg";
 
   Ship.prototype.relocate = function () {
     this.pos = this.game.randomPosition();

@@ -8,10 +8,18 @@
     Asteroids.MovingObject.call(this, options);
   };
 
+  Asteroids.Util.inherits(Asteroid, Asteroids.MovingObject);
+
+  Asteroid.prototype.draw = function (context) {
+    context.drawImage(Asteroid.IMAGE,
+                      this.pos[0] - Asteroid.RADIUS,
+                      this.pos[1] - Asteroid.RADIUS);
+  };
+
   Asteroid.COLOR = '#ffffff';
   Asteroid.RADIUS = 12;
-
-  Asteroids.Util.inherits(Asteroid, Asteroids.MovingObject);
+  Asteroid.IMAGE = new Image();
+  Asteroid.IMAGE.src = "./assets/asteroid.jpeg";
 
   Asteroid.prototype.collideWith = function (otherObject) {
     if (otherObject instanceof Asteroids.Ship) {

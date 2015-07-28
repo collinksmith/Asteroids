@@ -50,8 +50,4 @@
 
     return distance <= sumRadii ? true : false;
   };
-
-  MovingObject.prototype.collideWith = function (otherObject) {
-  };
-
 })();
