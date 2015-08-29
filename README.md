@@ -26,3 +26,9 @@ You can see the implementation in the [ship#rotate][rotate] and [ship#power][pow
 
 [rotate]: https://github.com/collinksmith/asteroids/blob/master/lib/ship.js#L75
 [power]: https://github.com/collinksmith/asteroids/blob/master/lib/ship.js#L56
+
+## TODO
+
+  * Add explosions when asteroids collide with a ship or bullet.
+  * Add visual cue to the ship's new location after relocating.
+  * Add sound effects.
