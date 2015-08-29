@@ -12,4 +12,7 @@ You have 3 lives. If you hit an asteroid, you will lose a life and be respawned 
 
 ## Technologies
 
-The game is written in JavaScript. It also makes se of HTML5 Canvas and jQuery.
+The game is written in JavaScript. It also makes use of HTML5 Canvas and jQuery.
+
+## Implementation Details
+
