@@ -22,3 +22,7 @@ If you simply listen to keydown events and call functions in response, you will 
 
 To solve this problem, this game uses intervals to control thrust and rotation. It sets an interval on the first keydown event, and clears the interval on a keyup event. This results in smooth and intuitive movement controls.
 
+You can see the implementation in the [ship#rotate][rotate] and [ship#power][power] functions.
+
+[rotate]: https://github.com/collinksmith/asteroids/blob/master/lib/ship.js#L75
+[power]: https://github.com/collinksmith/asteroids/blob/master/lib/ship.js#L56
