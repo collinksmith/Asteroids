@@ -1,5 +1,7 @@
 # Asteroids
 
+A browser-based version of the classic Asteroids game, built with JavaScript.
+
 [Live](http://www.collinsmith.me/asteroids)
 
 ## How to Play
